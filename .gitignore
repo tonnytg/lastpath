@@ -1,0 +1,19 @@
+# IDE
+.idea
+.IDEA
+
+# Temp files
+*.log
+.*~
+
+# Security files
+*.key
+
+# Databse
+*.db
+
+# Confs
+*.conf
+
+# Executable
+lstp
