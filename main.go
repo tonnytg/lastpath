@@ -38,7 +38,7 @@ func SavePath() Program {
 	return p
 }
 
-func GetInfo() {
+func GetInfo() Program {
 	file = os.Getenv("HOME") + "/." + file
 	f, err := os.Open(file)
 	if err != nil {
@@ -52,10 +52,20 @@ func GetInfo() {
 		log.Fatal(err)
 	}
 
+	return p
+}
+
+func PrintInfo() {
+	p := GetInfo()
 	fmt.Printf("ID:\t\t%d\n", p.Id)
 	fmt.Printf("Name:\t\t%s\n", p.Name)
 	fmt.Printf("LastPath:\t%s\n", p.LastPath)
 	fmt.Printf("When:\t\t%s\n", p.LastTime)
+}
+
+func GetMove() {
+	p := GetInfo()
+	fmt.Println(p.LastPath)
 }
 
 func FileSave() {
@@ -74,12 +84,16 @@ func FileSave() {
 func CheckFlag() {
 	save := flag.Bool("save", false, "save current path")
 	info := flag.Bool("info", false, "get last path info")
+	move := flag.Bool("move", false, "path to move")
 	flag.Parse()
 	if *save {
 		FileSave()
 	}
 	if *info {
 		GetInfo()
+	}
+	if *move {
+		GetMove()
 	}
 	return
 }
