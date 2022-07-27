@@ -90,7 +90,7 @@ func CheckFlag() {
 		FileSave()
 	}
 	if *info {
-		GetInfo()
+		PrintInfo()
 	}
 	if *move {
 		GetMove()
