@@ -5,8 +5,6 @@
 
 Back easealy to where are you working.
 
-
-
 #### How to use?
 
 Go project folder, save the path
@@ -14,7 +12,7 @@ Go project folder, save the path
   lstp --save
 
 This will be create file in `~/.filepath.txt`
-
+And you can back same folder easealy.
 
 To view this information
 
