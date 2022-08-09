@@ -10,7 +10,7 @@ func main() {
 	fmt.Println("vim-go")
 }
 
-func CheckFlag() {
+func CheckFlag() error {
 	save := flag.Bool("save", false, "save current path")
 	info := flag.Bool("info", false, "get last path info")
 	move := flag.Bool("move", false, "path to move")
@@ -24,5 +24,5 @@ func CheckFlag() {
 	if *move {
 		path.GetMove()
 	}
-	return
+	return nil
 }
