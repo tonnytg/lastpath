@@ -62,6 +62,12 @@ func PrintInfo() {
 	fmt.Printf("When:\t\t%s\n", p.LastTime)
 }
 
+// print shot info path
+func PrintShort() {
+	p := GetInfo()
+	fmt.Printf("%s\n", p.LastPath)
+}
+
 func GetMove() {
 	p := GetInfo()
 	fmt.Println(p.LastPath)
