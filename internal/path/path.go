@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"log"
 	"os"
-	"os/exec"
 	"strings"
 	"time"
 )
@@ -18,7 +17,7 @@ type Program struct {
 	Id       int
 	Name     string
 	LastPath string
-	LastTime string
+	CreateAt string
 }
 
 func (p *Program) NewPath() {
@@ -29,7 +28,7 @@ func (p *Program) NewPath() {
 	p.Id = 1
 	p.Name = path[strings.LastIndex(path, "/")+1:]
 	p.LastPath = path
-	p.LastTime = time.Now().Format("2006-01-02 15:04:05")
+	p.CreateAt = time.Now().Format("2006-01-02 15:04:05")
 }
 
 func SavePath() Program {
@@ -60,7 +59,7 @@ func PrintInfo() {
 	fmt.Printf("ID:\t\t%d\n", p.Id)
 	fmt.Printf("Name:\t\t%s\n", p.Name)
 	fmt.Printf("LastPath:\t%s\n", p.LastPath)
-	fmt.Printf("When:\t\t%s\n", p.LastTime)
+	fmt.Printf("When:\t\t%s\n", p.CreateAt)
 }
 
 // print shot info path
@@ -71,14 +70,7 @@ func PrintShort() {
 
 func ChangeCurrentPath() {
 	p := GetInfo()
-	// chagen direct using cd linux command
-	cmd := exec.Command("cd" + p.LastPath)
-
-	err := cmd.Run()
-
-	if err != nil {
-		log.Fatal(err)
-	}
+	fmt.Println(p.LastPath)
 }
 
 func FileSave() {

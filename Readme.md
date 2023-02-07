@@ -3,13 +3,16 @@
 This is a simple way to save the path and restore again next time.<br/>
 Back easily to where are you working.
 
+It is not possible to change of current folder with code, because children process can't change state of something control by operating system.
+In this case, we create a alias called `lp` with alias of binary file `lastpath` and we can use it to save and restore the path.
+
 
 # Install
 
 ```
-$go build -o lastpath cmd/main.go
-$cp lastpath /usr/local/bin/lastpath
-$alias lp='lastpath'
+go build -o lastpath cmd/main.go
+cp lastpath /usr/local/bin/lastpath
+alias lp='cd $(lastpath)'
 ```
 
 ###  Save
