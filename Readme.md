@@ -6,12 +6,11 @@ Back easily to where are you working.
 
 # Install
 
-`go build`
-
-`cp lastpath /usr/local/bin/lastpath`
-
-`alias lp='lastpath'`
-
+```
+$go build -o lastpath cmd/main.go
+$cp lastpath /usr/local/bin/lastpath
+$alias lp='lastpath'
+```
 
 ###  Save
 
