@@ -1,25 +1,39 @@
-## LastPath or lstp
+# LastPath
+ 
+This is a simple way to save the path and restore again next time.<br/>
+Back easily to where are you working.
 
 
-### This is a simple way to save the path
+# Install
 
-Back easealy to where are you working.
+`go build`
 
-#### How to use?
+`cp lastpath /usr/local/bin/lastpath`
 
-Go project folder, save the path
-
-  lstp --save
-
-This will be create file in `~/.filepath.txt`
-And you can back same folder easealy.
-
-To view this information
-
-  lstp --info
-
-at this momment it is the same like `cat ~/.filepath.txt`
+`alias lp='lastpath'`
 
 
-Do you like this idea? Star this project and help me to make it popular.
-Contact? tonnytg@gmail.com
+###  Save
+
+`lp save`
+
+This commando will save current folder to back easilly next time.
+
+
+### Move
+
+`lp`
+
+Without parameter it will move to last folder saved.
+
+### Info
+
+`lp info`
+
+This commando will show you the last folder saved.
+
+### TShoot
+
+Any problem? Try to remove the file `~/.lastpath.txt` and try again.
+
+At this momment it is the same like `cat ~/.filepath.txt`
