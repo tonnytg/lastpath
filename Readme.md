@@ -17,7 +17,7 @@ alias lp='cd $(lastpath)'
 
 ###  Save
 
-`lp save`
+`lastpath save`
 
 This commando will save current folder to back easilly next time.
 
@@ -30,7 +30,7 @@ Without parameter it will move to last folder saved.
 
 ### Info
 
-`lp info`
+`lastpath info`
 
 This commando will show you the last folder saved.
 

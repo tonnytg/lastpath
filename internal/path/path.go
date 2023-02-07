@@ -13,14 +13,14 @@ var (
 	file = "filepath.txt"
 )
 
-type Program struct {
+type Path struct {
 	Id       int
 	Name     string
 	LastPath string
 	CreateAt string
 }
 
-func (p *Program) NewPath() {
+func (p *Path) NewPath() {
 	path, err := os.Getwd()
 	if err != nil {
 		log.Fatal(err)
@@ -31,13 +31,14 @@ func (p *Program) NewPath() {
 	p.CreateAt = time.Now().Format("2006-01-02 15:04:05")
 }
 
-func SavePath() Program {
-	p := Program{}
+func SavePath() Path {
+	p := Path{}
 	p.NewPath()
+	FileSave(p)
 	return p
 }
 
-func GetInfo() Program {
+func GetInfo() Path {
 	file = os.Getenv("HOME") + "/." + file
 	f, err := os.Open(file)
 	if err != nil {
@@ -45,7 +46,7 @@ func GetInfo() Program {
 	}
 	defer f.Close()
 
-	var p Program
+	var p Path
 	err = json.NewDecoder(f).Decode(&p)
 	if err != nil {
 		log.Fatal(err)
@@ -56,13 +57,13 @@ func GetInfo() Program {
 
 func PrintInfo() {
 	p := GetInfo()
+
 	fmt.Printf("ID:\t\t%d\n", p.Id)
 	fmt.Printf("Name:\t\t%s\n", p.Name)
 	fmt.Printf("LastPath:\t%s\n", p.LastPath)
 	fmt.Printf("When:\t\t%s\n", p.CreateAt)
 }
 
-// print shot info path
 func PrintShort() {
 	p := GetInfo()
 	fmt.Printf("%s\n", p.LastPath)
@@ -73,8 +74,7 @@ func ChangeCurrentPath() {
 	fmt.Println(p.LastPath)
 }
 
-func FileSave() {
-	p := SavePath()
+func FileSave(p Path) {
 	j, err := json.Marshal(p)
 	if err != nil {
 		log.Fatal(err)

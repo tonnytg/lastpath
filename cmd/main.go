@@ -16,7 +16,7 @@ func main() {
 	case "save":
 		path.SavePath()
 	case "info":
-		path.GetInfo()
+		path.PrintInfo()
 	case "move":
 		path.ChangeCurrentPath()
 	}
