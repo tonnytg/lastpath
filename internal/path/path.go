@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"os/exec"
 	"strings"
 	"time"
 )
@@ -68,9 +69,16 @@ func PrintShort() {
 	fmt.Printf("%s\n", p.LastPath)
 }
 
-func GetMove() {
+func ChangeCurrentPath() {
 	p := GetInfo()
-	fmt.Println(p.LastPath)
+	// chagen direct using cd linux command
+	cmd := exec.Command("cd" + p.LastPath)
+
+	err := cmd.Run()
+
+	if err != nil {
+		log.Fatal(err)
+	}
 }
 
 func FileSave() {
