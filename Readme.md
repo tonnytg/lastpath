@@ -12,7 +12,7 @@ In this case, we create a alias called `lp` with alias of binary file `lastpath`
 ```
 go build -o lastpath cmd/main.go
 cp lastpath /usr/local/bin/lastpath
-alias lp='cd $(lastpath)'
+alias lsp='cd $(lastpath)'
 ```
 
 ###  Save
