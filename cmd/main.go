@@ -3,6 +3,7 @@ package main
 import (
 	"lastpath/internal/path"
 	"os"
+	"fmt"
 )
 
 func main() {
@@ -19,5 +20,7 @@ func main() {
 		path.PrintInfo()
 	case "move":
 		path.ChangeCurrentPath()
+	case "help":
+		fmt.Printf("save\ninfo\nmove\nhelp\n")
 	}
 }
