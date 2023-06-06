@@ -15,7 +15,7 @@ cp lastpath /usr/local/bin/lastpath
 alias lsp='cd $(lastpath)'
 ```
 
-###  Save
+### SAVE
 
 `lastpath save`
 
